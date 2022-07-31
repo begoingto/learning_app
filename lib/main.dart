@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learning_app/grid_view.dart';
 import 'package:learning_app/list_view_screen.dart';
 import 'package:learning_app/profile_screen.dart';
 
@@ -48,7 +49,13 @@ class MyHome extends StatelessWidget {
               child: const Text('Shopping List'),
             ),
             IconButton(
-              onPressed: () => {},
+              onPressed: () => {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => MyGridScreen(),
+                    ))
+              },
               icon: const Icon(Icons.face),
             ),
             ElevatedButton(
