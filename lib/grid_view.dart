@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:learning_app/main.dart';
 
 class MyGridScreen extends StatelessWidget {
-  const MyGridScreen({Key? key}) : super(key: key);
+  final List<MyCar> images;
+  const MyGridScreen({Key? key, required this.images}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +20,7 @@ class MyGridScreen extends StatelessWidget {
             mainAxisSpacing: 10,
             crossAxisSpacing: 10,
           ),
-          children: List.generate(20, (index) {
+          children: List.generate(images.length, (index) {
             return Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
@@ -32,14 +34,14 @@ class MyGridScreen extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(15),
                 child: GridTile(
-                  child: Image.network(
-                    'https://www.1auto.co/storage/ready_for_sales/20220216171927_2022-chevrolet-corvette-z06-1607016574.jpg',
-                    fit: BoxFit.contain,
-                  ),
                   footer: Container(
                     padding: EdgeInsets.all(8),
                     color: Colors.white,
-                    child: const Text('Lamborghini / XP'),
+                    child: Text(images[index].name.toString()),
+                  ),
+                  child: Image.network(
+                    images[index].image,
+                    fit: BoxFit.cover,
                   ),
                 ),
               ),
