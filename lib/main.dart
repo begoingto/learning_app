@@ -23,6 +23,12 @@ class MyHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final List<String> myImages = [
+      'https://carsguide-res.cloudinary.com/image/upload/f_auto,fl_lossy,q_auto,t_cg_hero_large/v1/editorial/2020-Chevrolet-Corvette-Stingray-Coupe-Red-1001x565_0.JPG',
+      'https://www.focus2move.com/wp-content/uploads/2018/08/Bugatti-Divo-2019-1.jpg',
+      'https://www.proton.com/-/media/project/proton-group/proton/media/car-models/x70/2022-x70/x70-mc1-booknow-thumb.ashx?la=en&hash=D6DCDD26F54A46285CEB78B0636E723D8185C194',
+      'https://i.ytimg.com/vi/dip_8dmrcaU/maxresdefault.jpg'
+    ];
     final List<MyCar> images = [
       const MyCar(
         name: 'My both',
@@ -82,7 +88,7 @@ class MyHome extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => MyGridScreen(images: images),
+                    builder: (context) => MyGridScreen(images: myImages),
                   ),
                 )
               },
