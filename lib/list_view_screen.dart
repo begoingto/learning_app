@@ -5,14 +5,9 @@ class ListScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<String> users = [
-      'Chocolate chips',
-      'Flour',
-      'Egge',
-    ];
     return Scaffold(
       appBar: AppBar(
-        title: Text('Shopping'),
+        title: const Text('Shopping'),
       ),
       body: ListView.builder(
         itemCount: 20,
@@ -20,7 +15,7 @@ class ListScreen extends StatelessWidget {
           return Card(
             child: ListTile(
               leading: CircleAvatar(child: Text(index.toString())),
-              title: Text('Good evening'),
+              title: const Text('Good evening'),
             ),
           );
         },

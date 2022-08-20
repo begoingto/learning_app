@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:learning_app/main.dart';
 import 'package:learning_app/widget_item_shoping.dart';
 
 class MyGridScreen extends StatefulWidget {
@@ -15,7 +14,6 @@ class _MyGridScreenState extends State<MyGridScreen> {
   List<String> listImages = [];
   @override
   void initState() {
-    // TODO: implement initState
     listImages.addAll(widget.images);
     super.initState();
   }
@@ -27,7 +25,7 @@ class _MyGridScreenState extends State<MyGridScreen> {
         title: const Text('Grid View'),
         backgroundColor: const Color(0xff0c111d),
       ),
-      backgroundColor: Color(0xff0c111d),
+      backgroundColor: const Color(0xff0c111d),
       body: GridView(
         padding: const EdgeInsets.all(16),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -41,16 +39,17 @@ class _MyGridScreenState extends State<MyGridScreen> {
             return Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
-                color: Color(0xff0c111d),
+                color: const Color(0xff0c111d),
                 border: Border.all(
                   width: 2,
-                  color: Color(0xffed5401),
+                  color: const Color(0xffed5401),
                 ),
-                boxShadow: [BoxShadow()],
+                boxShadow: const [BoxShadow()],
               ),
               child: WidgetClip(
                 image: listImages[index],
                 eventTab: () => {
+                  // ignore: avoid_print
                   print(index),
                 },
                 eventDelete: () => {

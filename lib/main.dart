@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:learning_app/grid_view.dart';
 import 'package:learning_app/list_view_screen.dart';
 import 'package:learning_app/profile_screen.dart';
+import 'package:learning_app/profile_two.dart';
 
 void main(List<String> args) {
   runApp(const MainScreen());
@@ -13,6 +14,7 @@ class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: MyHome(),
     );
   }
@@ -28,18 +30,6 @@ class MyHome extends StatelessWidget {
       'https://www.focus2move.com/wp-content/uploads/2018/08/Bugatti-Divo-2019-1.jpg',
       'https://www.proton.com/-/media/project/proton-group/proton/media/car-models/x70/2022-x70/x70-mc1-booknow-thumb.ashx?la=en&hash=D6DCDD26F54A46285CEB78B0636E723D8185C194',
       'https://i.ytimg.com/vi/dip_8dmrcaU/maxresdefault.jpg'
-    ];
-    final List<MyCar> images = [
-      const MyCar(
-        name: 'My both',
-        image:
-            'https://www.1auto.co/storage/ready_for_sales/20220216171927_2022-chevrolet-corvette-z06-1607016574.jpg',
-      ),
-      const MyCar(
-        name: 'carsguide-res',
-        image:
-            'https://carsguide-res.cloudinary.com/image/upload/f_auto,fl_lossy,q_auto,t_cg_hero_large/v1/editorial/2020-Chevrolet-Corvette-Stingray-Coupe-Red-1001x565_0.JPG',
-      )
     ];
     /*final List<Map<String, dynamic>> gridCard = [
       {
@@ -100,6 +90,17 @@ class MyHome extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) => const ProfileScreen(),
+                  ),
+                )
+              },
+              child: const Text('Profile'),
+            ),
+            ElevatedButton(
+              onPressed: () => {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ProfileTwo(),
                   ),
                 )
               },
