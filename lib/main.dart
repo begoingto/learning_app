@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learning_app/facebook_login.dart';
 import 'package:learning_app/grid_view.dart';
 import 'package:learning_app/list_view_screen.dart';
 import 'package:learning_app/profile_screen.dart';
@@ -104,8 +105,19 @@ class MyHome extends StatelessWidget {
                   ),
                 )
               },
-              child: const Text('Profile'),
-            )
+              child: const Text('Article'),
+            ),
+            ElevatedButton(
+              onPressed: () => {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => FacebookLogin(),
+                  ),
+                )
+              },
+              child: const Text('Facebook'),
+            ),
           ],
         ),
       ),
