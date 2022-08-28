@@ -82,7 +82,7 @@ class _FacebookLoginState extends State<FacebookLogin> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Container(
-                            height: 40,
+                            // height: 40,
                             padding: EdgeInsets.symmetric(horizontal: 5),
                             alignment: Alignment.centerLeft,
                             child: TextFormField(
@@ -91,6 +91,12 @@ class _FacebookLoginState extends State<FacebookLogin> {
                                 hintText: 'Phone number or email',
                                 border: InputBorder.none,
                               ),
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'Please enter phone or email';
+                                }
+                                return null;
+                              },
                               onSaved: (newValue) {
                                 setState(() {
                                   email = newValue;
@@ -103,7 +109,7 @@ class _FacebookLoginState extends State<FacebookLogin> {
                             color: Colors.grey,
                           ),
                           Container(
-                            height: 40,
+                            // height: 40,
                             alignment: Alignment.centerLeft,
                             padding: EdgeInsets.symmetric(horizontal: 5),
                             child: TextFormField(
@@ -112,6 +118,12 @@ class _FacebookLoginState extends State<FacebookLogin> {
                                 hintText: 'Password',
                                 border: InputBorder.none,
                               ),
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'Please enter password';
+                                }
+                                return null;
+                              },
                               onSaved: (newValue) {
                                 setState(() {
                                   password = newValue;
@@ -128,7 +140,11 @@ class _FacebookLoginState extends State<FacebookLogin> {
                     width: double.infinity,
                     child: ElevatedButton(
                       onPressed: () => {
-                        formKey.currentState?.save(),
+                        if (formKey.currentState!.validate())
+                          {
+                            formKey.currentState?.save(),
+                            formKey.currentState?.reset(),
+                          }
                       },
                       child: const Text('Login'),
                     ),
